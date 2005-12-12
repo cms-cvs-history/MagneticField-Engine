@@ -1,0 +1,10 @@
+<use name=boost>
+<use name=clhep>
+<use name=FWCore/Integration>
+<use name=MagneticField/Engine>
+<use name=MagneticField/Records>
+
+<library file="testMagneticField.cc" name=testMagneticField>
+ <flags SEAL_PLUGIN_NAME="testMagneticField">
+</library>
+ 
