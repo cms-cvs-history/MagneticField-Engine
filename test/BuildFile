@@ -1,6 +1,5 @@
 <use name=boost>
 <use name=clhep>
-<use name=FWCore/Integration>
 <use name=MagneticField/Engine>
 <use name=MagneticField/Records>
 
