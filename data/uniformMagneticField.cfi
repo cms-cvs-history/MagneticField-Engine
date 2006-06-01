@@ -2,13 +2,7 @@
 # This cfi contains everything needed to use the uniform magnetic
 # field engine.
 
-# Satisfy IdealMagneticFieldRecord dependence on IdealGeometryRecord.
-es_source magfield = XMLIdealGeometryESSource 
-{
-   FileInPath GeometryConfiguration ="MagneticField/Engine/data/emptyConfiguration.xml"
-   string rootNodeName="fake"
-}
-
+# Note: at least a module with any XMLIdealGeometryESSource is required in the configuration.
 
 es_module = UniformMagneticFieldESProducer {
   double ZFieldInTesla = 0.0
