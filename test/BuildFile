@@ -2,6 +2,7 @@
 <use name=clhep>
 <use name=MagneticField/Engine>
 <use name=MagneticField/Records>
+<use name=MagneticField/Layers>
 
 <library file="testMagneticField.cc" name=testMagneticField>
  <flags SEAL_PLUGIN_NAME="testMagneticField">
