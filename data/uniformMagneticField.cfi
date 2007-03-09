@@ -2,7 +2,8 @@
 # This cfi contains everything needed to use the uniform magnetic
 # field engine.
 
-# Note: at least a module with any XMLIdealGeometryESSource is required in the configuration.
+# Unfortunately we need to load the field xml...
+include "Geometry/CMSCommonData/data/cmsMagneticFieldXML.cfi"	
 
 es_module = UniformMagneticFieldESProducer {
   double ZFieldInTesla = 0.0
