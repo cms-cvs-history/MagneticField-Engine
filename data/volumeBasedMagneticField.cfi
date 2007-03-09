@@ -8,4 +8,5 @@ es_module = VolumeBasedMagneticFieldESProducer {
   double findVolumeTolerance = 0.0
   untracked bool cacheLastVolume = true
   untracked bool timerOn = false
+  untracked bool debugBuilder = false 
 }
