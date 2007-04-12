@@ -5,6 +5,6 @@
 <use name=MagneticField/Layers>
 
 <library file="testMagneticField.cc" name=testMagneticField>
- <flags SEAL_PLUGIN_NAME="testMagneticField">
+ <flags EDM_PLUGIN=1>
 </library>
  
