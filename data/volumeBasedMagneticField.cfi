@@ -9,4 +9,5 @@ es_module = VolumeBasedMagneticFieldESProducer {
   untracked bool cacheLastVolume = true
   untracked bool timerOn = false
   untracked bool debugBuilder = false 
+  untracked bool useParametrizedTrackerField = true
 }
