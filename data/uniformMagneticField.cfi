@@ -2,7 +2,7 @@
 # This cfi contains everything needed to use the uniform magnetic
 # field engine.
 
-es_source = uniformMagneticField EmptyESSource {
+es_source = idealMagneticFieldRecordSource EmptyESSource {
     string recordName = "IdealMagneticFieldRecord"
     bool iovIsRunNotTime = true
     vuint32 firstValid = {1}
