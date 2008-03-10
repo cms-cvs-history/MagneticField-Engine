@@ -3,8 +3,12 @@
 # field engine.
 
 include "Geometry/CMSCommonData/data/cmsMagneticFieldXML.cfi"	
+// avoid interference with EmptyESSource in uniformMagneticField.cfi
+es_prefer magfield = XMLIdealGeometryESSource {} 
 
 es_module = VolumeBasedMagneticFieldESProducer {
+  untracked string label = ""
+  string version = "grid_85l_030919"
   double findVolumeTolerance = 0.0
   untracked bool cacheLastVolume = true
   untracked bool timerOn = false
