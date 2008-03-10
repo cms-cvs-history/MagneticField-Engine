@@ -8,3 +8,6 @@
  <flags EDM_PLUGIN=1>
 </library>
  
+<library file="queryField.cc" name=queryField>
+ <flags EDM_PLUGIN=1>
+</library>
