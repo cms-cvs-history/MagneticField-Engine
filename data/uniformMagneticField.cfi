@@ -10,4 +10,5 @@ es_source idealMagneticFieldRecordSource = EmptyESSource {
 
 es_module = UniformMagneticFieldESProducer {
   double ZFieldInTesla = 0.0
+  untracked string label = ""
 }
