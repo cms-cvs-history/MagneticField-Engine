@@ -16,16 +16,6 @@ es_module = ParametrizedMagneticFieldProducer {
 	double a  = 4.6430
     }
 
-//    string version = "OAE_1103l_071212"
-//    PSet parameters = {
-//      string BValue = "3_8T"
-////        string BValue = "4_0T"
-//    }
-
-//    string version = "MTCC2DPoly"
-//    PSet parameters = {
-//    }
-
 }
 
 
