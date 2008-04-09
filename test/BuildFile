@@ -6,6 +6,7 @@
 
 <library file="testMagneticField.cc" name=testMagneticField>
  <flags EDM_PLUGIN=1>
+ <use name=MagneticField/VolumeBasedEngine>
 </library>
  
 <library file="queryField.cc" name=queryField>
