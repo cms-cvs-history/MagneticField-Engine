@@ -1,0 +1,28 @@
+
+# This cfi contains everything needed to use the VolumeBased magnetic
+# field engine version 1103l
+
+
+include "MagneticField/GeomBuilder/data/cmsMagneticFieldXML_1103l.cfi"	
+// avoid interference with EmptyESSource in uniformMagneticField.cfi
+es_prefer magfield = XMLIdealGeometryESSource {} 
+
+
+es_module = ParametrizedMagneticFieldProducer {
+    untracked string label = "parametrizedField"
+
+    string version = "OAE_1103l_071212"
+    PSet parameters = {
+      string BValue = "3_8T"
+    }
+}
+
+
+es_module = VolumeBasedMagneticFieldESProducer {
+  untracked string label = ""
+  string version = "grid_1103l_071212_3_8t"
+  untracked bool cacheLastVolume = true
+  untracked bool timerOn = false
+  untracked bool debugBuilder = false 
+  bool useParametrizedTrackerField = false
+}
