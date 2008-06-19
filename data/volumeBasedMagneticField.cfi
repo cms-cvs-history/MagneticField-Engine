@@ -1,5 +1,5 @@
 
 # This cfi contains everything needed to use the VolumeBased magnetic
 # field engine.
-//Default is version 85l
-//include "MagneticField/Engine/data/volumeBasedMagneticField_85l.cfi"
+##  this file is obsolete and should not be used
+# it is now replaced by Configuration/StandardSequences/data/MagneticField.cff
