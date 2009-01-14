@@ -3,36 +3,40 @@
 import FWCore.ParameterSet.Config as cms
 
 process = cms.Process("MAGNETICFIELDTEST")
+
 process.source = cms.Source("EmptySource")
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(1)
 )
 
-
 # Example configuration for the magnetic field
-
 
 # Uncomment ONE of the following:
 
-
-# Uniform field
+### Uniform field
 #process.load("Configuration.StandardSequences.MagneticField_0T_cff")
 #process.localUniform.ZFieldInTesla = 3.8
 
-# Full field map, static configuration
+
+### Full field map, static configuration for each field value
 #process.load("Configuration.StandardSequences.MagneticField_20T_cff")
 
 #process.load("Configuration.StandardSequences.MagneticField_30T_cff")
 
 #process.load("Configuration.StandardSequences.MagneticField_35T_cff")
 
-#process.load("Configuration.StandardSequences.MagneticField_38T_cff")
+process.load("Configuration.StandardSequences.MagneticField_38T_cff")
 
 #process.load("Configuration.StandardSequences.MagneticField_40T_cff")
 
-# Automatically select map based on recorded energy in the DB
-process.load("MagneticField.Engine.autoMagneticFieldProducer_cfi")
-process.AutoMagneticFieldESProducer.value = 38
+
+###Configuration to select map based on recorded current in the DB
+
+#process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
+#process.GlobalTag.connect = "frontier://PromptProd/CMS_COND_21X_GLOBALTAG"
+#process.GlobalTag.globaltag = 'CRAFT_ALL_V4::All'
+#process.load("MagneticField.Engine.autoMagneticFieldProducer_cfi")
+##process.AutoMagneticFieldESProducer.valueOverride = 38
 
 process.MessageLogger = cms.Service("MessageLogger",
     categories   = cms.untracked.vstring("MagneticField"),
@@ -49,6 +53,6 @@ process.MessageLogger = cms.Service("MessageLogger",
   )
 )
 
-process.queryField  = cms.EDProducer("queryField")
+process.queryField  = cms.EDAnalyzer("queryField")
 process.p1 = cms.Path(process.queryField)
 
