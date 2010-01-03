@@ -3,7 +3,7 @@
 <use name=MagneticField/Engine>
 <use name=MagneticField/Records>
 <use name=MagneticField/Layers>
-
+<use name=DataFormats/GeometryVector>
 
 #<library file="plotField.cc" name=plotField>
 # <flags EDM_PLUGIN=1>
