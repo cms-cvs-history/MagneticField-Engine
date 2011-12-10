@@ -5,13 +5,15 @@
  *
  *  Base class for the different implementation of magnetic field engines.
  *
- *  $Date: 2009/03/19 10:27:05 $
- *  $Revision: 1.7 $
+ *  $Date: 2011/12/10 16:03:31 $
+ *  $Revision: 1.10 $
  *  \author N. Amapane - CERN
  */
 
 #include "DataFormats/GeometryVector/interface/GlobalVector.h"
 #include "DataFormats/GeometryVector/interface/GlobalPoint.h"
+#include "FWCore/Utilities/interface/Visibility.h"
+#include "FWCore/Utilities/interface/Likely.h"
 
 class MagneticField
 {
@@ -30,10 +32,14 @@ class MagneticField
   virtual GlobalVector inTesla (const GlobalPoint& gp) const = 0;
 
   /// Field value ad specified global point, in KGauss
-  virtual GlobalVector inKGauss(const GlobalPoint& gp) const;
+  GlobalVector inKGauss(const GlobalPoint& gp) const  {
+    return inTesla(gp) * 10.F;
+  }
 
   /// Field value ad specified global point, in 1/Gev
-  virtual GlobalVector inInverseGeV(const GlobalPoint& gp) const;
+  GlobalVector inInverseGeV(const GlobalPoint& gp) const {
+    return inTesla(gp) * 2.99792458e-3F;
+  }
 
   /// True if the point is within the region where the concrete field
   // engine is defined.
@@ -48,9 +54,18 @@ class MagneticField
   }
   
   /// The nominal field value for this map in kGauss
-  // This generic implementation can be replaced by concrete engines
-  virtual int nominalValue() const;
-  
+  int nominalValue() const {
+    if unlikely(!nominalValueCompiuted) { 
+      theNominalValue = computeNominalValue();
+      nominalValueCompiuted=true;
+    }
+    return theNominalValue;
+  }
+private:
+  //nominal field value 
+  virtual int computeNominalValue() const;
+  mutable bool nominalValueCompiuted;
+  mutable int theNominalValue;
 };
 
 #endif
